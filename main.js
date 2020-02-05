@@ -2,7 +2,7 @@ console.log("OUTPUT");
 
 
 
-// check if not empty first ... 
+// count for turns 
 let count =0 ; 
 
 //set palyers : 
@@ -13,33 +13,11 @@ let winner=false;
 
 
 
-function reset() {
-  
-$('.place').removeClass('O')
-$('.place').removeClass('X')
-$('.place').html(' ')
-  console.log("reset")
-count=0; 
-playerX=[]; // store the score 
-playerO=[];
-winner=false;
-
-$('h2').show();
-$('h2').html('Turns.. ')
-$('h3').hide(); 
-console.log(count)
- // location.reload();
- playTurn(event)
-}
-$("#replay").on('click', reset);
-
-
 const gamePlay = function () 
 { 
-   playerO; 
-   playerX;
+  
 
-    // wining conditions for the Game .. using the color attr. to calculate the result.
+    // wining conditions for the Game .. using the X O class . to calculate the result.
     // row
     const playerXrow1 = $("#O-1.X , #O-2.X , #O-3.X").length === 3
     const playerXrow2 = $("#T-1.X , #T-2.X , #T-3.X").length === 3
@@ -72,91 +50,81 @@ const gamePlay = function ()
     winO=( playerOrow1 || playerOrow2 || playerOrow3 || playerOcol1 || playerOcol2 || playerOcol3 || playerOdia1 || playerOdia2)
     
 
+
+
   if ( winX )
   { 
-    
-    console.log('X player win')
     $('h2').hide();
     $('h3').show();
-    $('h3').text('X player win'); 
-    return winner = true;
+    $('h3').text('X player win');
+    
+    return winner = winX;
   }
   if ( winO )
   { 
-   
-    console.log('O player win')
     $('h2').hide();
     $('h3').show();
-    $('h3').text('O player win'); 
-    return winner = true;
+    $('h3').text('O player win');
+    console.log(winO); 
+    return winner = winO;
+    
   }
-    else {
-      console.log('game on...')
-    }
   }
 
-function playTurn(event) {
+
+
+
+  const playTurn = function (event){
+    console.log("88 : reset")
     $(".place").click(function(event) {
        console.log(count)
-        if(count%2===0 && count<= 9 )  
+        if(count%2===0 && count< 9 )  
         { 
-           // $(this).css("background-color", "pink")
           $(this).removeClass("O")
+          $(this).addClass("X")
+          $(this).addClass("XPlay") // just to make sure there is no bugs..
            $(this).html("X")
-            $(this).addClass("X") 
-            playerX.push(this);
+         //
             $('h2').text('O turn');  
+            console.log("98 : X")
+            playerX.push(this);
             if ( playGame() === true)
             { 
                 count =10;
             }
-
         }
 
-        if(count%2!==0 && count<= 9 )
+        else if(count%2!==0 && count< 9 )
         { 
-          $(this).removeClass("X") // just to make sure there is no bugs..
-            //$(this).css("background-color", "rosybrown")
+          $(this).removeClass("X")
+          $(this).addClass("O")
+          $(this).addClass("OPlay") // just to make sure there is no bugs..
             $(this).html("O")
             // push the O value in the score index.
-            $(this).addClass("O")
-            playerO.push(this);
+         
             $('h2').text('X turn');
+            playerO.push(this);
+            console.log("113 : O")
             if ( playGame() === true)
             { 
                 count =10;
             }
         }
         $( this ).off( event )
-        playGame()
     count++;
-    
-    
     })
     
   }
-  
   playTurn(event)
-   
  
-function getXCount() {
-    let x = playerX.length
-    return x;
-  }
-  
-  function getOCount() {
-    let o = playerO.length
-    return o;
-  } 
-  
+// main function...
   const playGame= function() {
       
     console.log('play game!')
     if ( winner === true)
-    { 
+  
         count=10;
-    return count;
-} 
+
     if (count === 9 ) {
         console.log('Tie game!')
         $('h2').hide();
@@ -168,7 +136,34 @@ function getXCount() {
       gamePlay(); 
     }
 }
+playGame()
 
+
+
+function reset() {
+  count=0; 
+  $('.place').removeClass('O')
+  $('.place').removeClass('X')
+  $('.place').html(' ')
+  $('.place').removeClass("XPlay")
+  $('.place').removeClass("OPlay")
+    console.log("21 : reset")
+  winner=false;
+  playerX=[]
+  playerO=[]
+  
+  $('h2').show();
+  $('h2').html('Turns.. ')
+  $('h3').hide(); 
+  console.log(count)
+   // location.reload();
+  
+   playTurn(event)
+   
+  }
+
+  $("#replay").on('click', reset);
+  
 
 
 

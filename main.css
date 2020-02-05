@@ -1,6 +1,9 @@
 
 body { 
     text-align: center;
+    font-size: 25px;
+    font-family: 'Raleway', sans-serif;
+
 }
 
 .container { 
@@ -10,25 +13,60 @@ body {
     
     justify-content: center;
     display: grid;
-    grid-template-rows: 100px 100px 100px;
-    grid-template-columns: 100px 100px 100px;
+    grid-template-rows: 120px 120px 120px;
+    grid-template-columns: 120px 120px 120px;
 }
 .place { 
     height: 100px; 
     width: 100px;
-    border: 1px crimson solid ;
-    background-color: blanchedalmond;
+    font-size: 60px;
+    padding: 10px;
+    border: white 5px solid;
+    background-color: lightgray;
 
 }
 
 button { 
     margin-top: 100px;
 }
-
-h3 { 
-
-    color : darkgoldenrod; 
+h1 { 
+    font-size: 40px;
+    color : crimson; 
     text-align: center;
     font-weight: bold;
-    font-size: 20px ;
+
+
+}
+
+h2 { 
+    font-size: 20px;
+    color : crimson; 
+    text-align: center;
+    font-weight: bold;
+
+}
+h3 { 
+    font-size: 20px;
+    color : crimson;
+    text-align: center;
+    font-weight: bold;
+}
+.XPlay { 
+    background-color: indianred;
+    color : white; 
+}
+
+.OPlay { 
+    background-color:palevioletred;
+    color : white; 
+}
+
+button {
+    border-radius: 5px;
+    padding: 5px;
+    margin: 50px ;
+    text-align: center;
+    background-color: crimson;
+    font-size: 13px;
+    color: #fff;
 }
