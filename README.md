@@ -14,21 +14,21 @@ the project requirement in GA and Misk training program
 
 # technologies used
 
-###sowftware : 
-⋅⋅* visual studio code  for writing and editing the code 
-⋅⋅* git bash to upload the files into GitHub 
-⋅⋅* chrome developer tools for debugging  and testing the code 
+### sowftware : 
+* visual studio code  for writing and editing the code 
+* git bash to upload the files into GitHub 
+* chrome developer tools for debugging  and testing the code 
 
- ⋅⋅* the code was written in: 
+ * the code was written in: 
 - HTML 
 - CSS 
 -Java script 
 -JQuary
 
-⋅⋅* the wireframes were drawn in Ipad notes
+* the wireframes were drawn in Ipad notes
 
 
-###the wireframes 
+### the wireframes 
 ![alt text](https://www5.0zz0.com/2020/02/06/02/316634545.png "plan-1")
 
 
@@ -39,11 +39,11 @@ the project requirement in GA and Misk training program
 designing a clear plan and wireframe to satisfy the user story that given. 
 
 
-⋅⋅* the first problem was whom the program will know how is player X and who is player O, there for a special ID was given, setting a count that increment in every round .. if the count is Even then the pointer will be assigned to X otherwise, it's O.
+* the first problem was whom the program will know how is player X and who is player O, there for a special ID was given, setting a count that increment in every round .. if the count is Even then the pointer will be assigned to X otherwise, it's O.
 
-⋅⋅*the second problem was what approach was the winning conditions .. I chose to identify the places of the piece by using classes. assigning each class to the ID of the square. 
+* the second problem was what approach was the winning conditions .. I chose to identify the places of the piece by using classes. assigning each class to the ID of the square. 
 
-⋅⋅*writing the 8 conditions for winning for each X and O. by calling the position and the classes. 
+* writing the 8 conditions for winning for each X and O. by calling the position and the classes. 
 
 ### problem during the devlopment 
 One particular problem was causing a lot of bugs was the calling and cancelling the event listener. the problem appears after resetting the game. the problem was solved by declaring a second class was checking if the space was empty or already assigned to the played class. 
