@@ -1,5 +1,3 @@
-console.log("OUTPUT"); 
-
 
 
 // count for turns 
@@ -11,6 +9,7 @@ let playerO=[];
 let winner=false;
 let empty=false;
 $('h3').hide(); 
+let sound= document.getElementById('vectory');
 
 
 // for validating if the spot was empty .. 
@@ -62,6 +61,8 @@ const gamePlay = function ()
     const playerOdia1 = $("#O-1.O , #T-2.O , #Th-3.O").length === 3
     const playerOdia2 = $("#O-3.O , #T-2.O , #Th-1.O").length === 3
 
+    // assigning the value to the var win 
+
     winX=( playerXrow1 || playerXrow2 || playerXrow3 || playerXcol1 || playerXcol2 || playerXcol3 || playerXdia1 || playerXdia2 )
     winO=( playerOrow1 || playerOrow2 || playerOrow3 || playerOcol1 || playerOcol2 || playerOcol3 || playerOdia1 || playerOdia2)
     
@@ -70,13 +71,19 @@ const gamePlay = function ()
 
     // for cal.draw ...
     place=xScoreCount+oScoreCount;
-
+    var vectory=true;
   if ( winX ) // return true if X win
   { 
     $('h2').hide();
     $('h3').show();
     $('h3').text('X player win');
     winner = true
+    if (vectory ){ 
+      sound.pause(); 
+      sound.currentTime=0; 
+      sound.play(); 
+      vectory=false;
+    }
     return winner;
   }
   if ( winO ) // return true if O win
@@ -84,13 +91,18 @@ const gamePlay = function ()
     $('h2').hide();
     $('h3').show();
     $('h3').text('O player win');
-    console.log(winO); 
     winner = true
+    if (vectory ){ 
+      sound.pause(); 
+      sound.currentTime=0; 
+      sound.play(); 
+      vectory=false;
+    }
     return winner;
     
   }
   if ( place === 9 &&!winX &&!winO) {  // if Draw.. 
-    console.log('Tie game!')
+  
     $('h2').hide();
     $('h3').show();
     $('h3').text('Tie !'); 
@@ -101,7 +113,7 @@ const gamePlay = function ()
 
 // for Players Turns. 
 const playTurn = function (){ 
-  console.log(count)
+ 
   ifEmpty(this);
   if (empty) { 
     if(count%2===0 && count< 9 )  // Even for X
@@ -143,13 +155,13 @@ const playTurn = function (){
   }
 count++;
 }
-else 
-console.log("ERROR");
+
+
 }
   
 
 
-    console.log("88 : START")
+ 
     $(".place").on('click', playTurn);
     
     
@@ -157,14 +169,14 @@ console.log("ERROR");
  
 // main function...
 const playGame= function() {
-  console.log('play game!')
+  
   if ( winner === true)
   { 
-    console.log('FOUND IT ')
+   
     count =10 ;
 } 
   else {
-    console.log('no winner ..')
+   
     gamePlay(); 
 
   }
@@ -190,7 +202,7 @@ const playGame= function() {
   $('h2').show();
   $('h2').html('Turns.. ')
   $('h3').hide(); 
-  console.log(count)
+  
   }
 
   $("#replay").on('click', reset);
