@@ -1,8 +1,10 @@
 
 body { 
+    justify-content: center;
     text-align: center;
     font-size: 25px;
     font-family: 'Raleway', sans-serif;
+    background-image: url("img/b2.png");
 
 }
 
@@ -31,7 +33,7 @@ button {
 }
 h1 { 
     font-size: 40px;
-    color : crimson; 
+    color : lightgoldenrodyellow; 
     text-align: center;
     font-weight: bold;
 
@@ -39,17 +41,29 @@ h1 {
 }
 
 h2 { 
+
+    border-radius: 5px;
+    margin: auto ;
+    width: 250px;
     font-size: 20px;
-    color : crimson; 
-    text-align: center;
+    padding: 20px;
+    background-color: crimson;
+    color : lightgoldenrodyellow; 
     font-weight: bold;
 
 }
 h3 { 
+
+    
+    border-radius: 5px;
+    margin: auto ;
+    width: 250px;
     font-size: 20px;
-    color : crimson;
-    text-align: center;
+    padding: 20px;
+    background-color: crimson;
+    color : lightgoldenrodyellow; 
     font-weight: bold;
+    
 }
 .XPlay { 
     background-color: indianred;

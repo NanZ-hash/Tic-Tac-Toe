@@ -9,6 +9,7 @@ let count =0 ;
 let playerX=[]; // store the score 
 let playerO=[];
 let winner=false;
+$('h3').hide(); 
 
 
 
@@ -49,8 +50,10 @@ const gamePlay = function ()
     winX=( playerXrow1 || playerXrow2 || playerXrow3 || playerXcol1 || playerXcol2 || playerXcol3 || playerXdia1 || playerXdia2 )
     winO=( playerOrow1 || playerOrow2 || playerOrow3 || playerOcol1 || playerOcol2 || playerOcol3 || playerOdia1 || playerOdia2)
     
+    let xScoreCount = getOCount()
+    let oScoreCount = getXCount()
 
-
+    place=xScoreCount+oScoreCount;
 
   if ( winX )
   { 
@@ -58,7 +61,7 @@ const gamePlay = function ()
     $('h3').show();
     $('h3').text('X player win');
     
-    return winner = winX;
+    return winner = true;
   }
   if ( winO )
   { 
@@ -66,8 +69,15 @@ const gamePlay = function ()
     $('h3').show();
     $('h3').text('O player win');
     console.log(winO); 
-    return winner = winO;
+    return winner = true;
     
+  }
+  if ( place === 9 &&!winX &&!winO) { 
+    console.log('Tie game!')
+    $('h2').hide();
+    $('h3').show();
+    $('h3').text('Tie !'); 
+    return winner = true;
   }
   }
 
@@ -90,7 +100,7 @@ const gamePlay = function ()
             playerX.push(this);
             if ( playGame() === true)
             { 
-                count =10;
+                count =9;
             }
         }
 
@@ -107,7 +117,7 @@ const gamePlay = function ()
             console.log("113 : O")
             if ( playGame() === true)
             { 
-                count =10;
+                count =9;
             }
         }
         $( this ).off( event )
@@ -118,29 +128,34 @@ const gamePlay = function ()
   playTurn(event)
  
 // main function...
-  const playGame= function() {
-      
-    console.log('play game!')
-    if ( winner === true)
-  
-        count=10;
 
-    if (count === 9 ) {
-        console.log('Tie game!')
-        $('h2').hide();
-        $('h3').show();
-        $('h3').text('Tie !'); 
-        return winner = true;
-      } 
-    else {
-      gamePlay(); 
-    }
+function getXCount() {
+  let x = playerX.length
+  return x;
 }
-playGame()
+
+function getOCount() {
+  let o = playerO.length
+  return o;
+} 
+
+const playGame= function() {
+
+  console.log('play game!')
+  if ( winner === true)
+  { 
+    reset();
+} 
+  else {
+    console.log('no winner yet...')
+    gamePlay(); 
+
+  }
+}
 
 
 
-function reset() {
+ const reset = function() {
   count=0; 
   $('.place').removeClass('O')
   $('.place').removeClass('X')
