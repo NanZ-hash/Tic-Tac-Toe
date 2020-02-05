@@ -4,7 +4,7 @@ body {
 }
 
 .container { 
-    color : wheat;
+    color :rgb(170, 46, 25);
 
     margin-top: 100px;
     
@@ -16,11 +16,19 @@ body {
 .place { 
     height: 100px; 
     width: 100px;
-    border: 3px black solid ;
+    border: 1px crimson solid ;
     background-color: blanchedalmond;
 
 }
 
 button { 
     margin-top: 100px;
+}
+
+h3 { 
+
+    color : darkgoldenrod; 
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px ;
 }
