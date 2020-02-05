@@ -33,7 +33,7 @@ button {
 }
 h1 { 
     font-size: 40px;
-    color : lightgoldenrodyellow; 
+    color : white; 
     text-align: center;
     font-weight: bold;
 
@@ -48,8 +48,9 @@ h2 {
     font-size: 20px;
     padding: 20px;
     background-color: crimson;
-    color : lightgoldenrodyellow; 
+    color : white; 
     font-weight: bold;
+    border: white solid 1px;
 
 }
 h3 { 
@@ -61,8 +62,9 @@ h3 {
     font-size: 20px;
     padding: 20px;
     background-color: crimson;
-    color : lightgoldenrodyellow; 
+    color :white; 
     font-weight: bold;
+    border: white solid 1px;
     
 }
 .XPlay { 
@@ -76,6 +78,8 @@ h3 {
 }
 
 button {
+    height:90 ;
+    width: 130px;
     border-radius: 5px;
     padding: 5px;
     margin: 50px ;
