@@ -39,7 +39,7 @@ the project requirement in GA and Misk training program
 designing a clear plan and wireframe to satisfy the user story that given. 
 
 
-* the first problem was whom the program will know how is player X and who is player O, there for a special ID was given, setting a count that increment in every round .. if the count is Even then the pointer will be assigned to X otherwise, it's O.
+* the first problem was whom the program will know who is player X and who is player O, there for a special ID was given, setting a count that increment in every round .. if the count is Even then the pointer will be assigned to X otherwise, it's O.
 
 * the second problem was what approach was the winning conditions .. I chose to identify the places of the piece by using classes. assigning each class to the ID of the square. 
 
